@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
+
   def index
     @user = current_user
     @prototypes = Prototype.all
@@ -21,7 +22,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
-    @user = current_user.name
+    #@user = current_user.name
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)
   end
